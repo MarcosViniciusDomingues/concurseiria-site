@@ -38,10 +38,10 @@ img{max-width:100%;display:block}
 .nav{display:flex;align-items:center;justify-content:space-between;gap:20px;padding:16px 0}
 .brand{display:flex;align-items:center;gap:14px}
 ..brand img{
-width:90px;
+width:74px;
 height:auto;
 object-fit:contain;
-border-radius:12px;
+border-radius:10px;
 background:white;
 padding:6px;
 }
