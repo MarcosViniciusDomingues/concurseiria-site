@@ -39,11 +39,11 @@ img{max-width:100%;display:block}
 .brand{display:flex;align-items:center;gap:14px}
 ..brand img{
 width:74px;
-height:auto;
+height:74px;
 object-fit:contain;
-border-radius:10px;
+border-radius:16px;
 background:white;
-padding:6px;
+padding:4px;
 }
 .brand h1,.brand strong{font-size:1.05rem;margin:0}
 .brand small{display:block;color:var(--muted);margin-top:2px}
