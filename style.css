@@ -37,7 +37,14 @@ img{max-width:100%;display:block}
 }
 .nav{display:flex;align-items:center;justify-content:space-between;gap:20px;padding:16px 0}
 .brand{display:flex;align-items:center;gap:14px}
-.brand img{width:52px;height:52px;object-fit:contain;border-radius:16px;background:rgba(255,255,255,.03);padding:4px}
+..brand img{
+width:90px;
+height:auto;
+object-fit:contain;
+border-radius:12px;
+background:white;
+padding:6px;
+}
 .brand h1,.brand strong{font-size:1.05rem;margin:0}
 .brand small{display:block;color:var(--muted);margin-top:2px}
 .nav-links{display:flex;gap:18px;align-items:center;flex-wrap:wrap}
