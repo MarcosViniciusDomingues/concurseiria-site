@@ -653,6 +653,102 @@
       .price-now,.offer-big{font-size:3rem}
       .book-card{padding:20px}
     }
+.focus-layout{
+  display:grid;
+  grid-template-columns: minmax(0, 1.2fr) minmax(320px, .72fr);
+  gap:34px;
+  align-items:start;
+}
+
+.focus-left{
+  display:grid;
+  gap:18px;
+}
+
+.focus-box{
+  background:linear-gradient(180deg, rgba(255,255,255,.07), rgba(255,255,255,.045));
+  border:1px solid rgba(255,255,255,.10);
+  border-radius:28px;
+  padding:26px;
+  box-shadow:var(--shadow);
+}
+
+.focus-box .section-title{
+  max-width:100%;
+  margin-bottom:22px;
+}
+
+.cards-2{
+  display:grid;
+  grid-template-columns:repeat(2,1fr);
+  gap:18px;
+}
+
+.side-offer{
+  background:linear-gradient(180deg, rgba(41,103,166,.28), rgba(22,53,93,.42));
+  border:1px solid rgba(87,215,255,.22);
+  border-radius:28px;
+  padding:24px;
+  box-shadow:var(--shadow);
+  position:sticky;
+  top:92px;
+}
+
+.side-offer .strike-row{
+  margin-top:0;
+}
+
+.side-offer .price-label{
+  margin-top:2px;
+}
+
+.side-offer .price-now{
+  margin-top:8px;
+  margin-bottom:10px;
+}
+
+.side-offer .offer-note{
+  margin-bottom:18px;
+}
+
+.side-offer .book-cover{
+  max-width:245px;
+  margin:0 auto 18px;
+}
+
+.side-offer .btn{
+  width:100%;
+}
+
+.feature-list.compact{
+  margin-top:0;
+}
+
+.feature-list.compact .feature{
+  padding:15px 16px;
+}
+
+@media (max-width:1024px){
+  .focus-layout{
+    grid-template-columns:1fr;
+  }
+
+  .side-offer{
+    position:relative;
+    top:auto;
+  }
+}
+
+@media (max-width:720px){
+  .cards-2{
+    grid-template-columns:1fr;
+  }
+
+  .focus-box,
+  .side-offer{
+    padding:20px;
+  }
+}
   </style>
 </head>
 <body>
@@ -698,7 +794,7 @@
             </p>
 
             <div class="hero-actions">
-              <a class="btn btn-primary track-buy" href="https://pay.kiwify.com.br/3M7IeMJ" target="_blank" rel="noreferrer">Garantir agora</a>
+              <a class="btn btn-primary" href="https://pay.kiwify.com.br/3M7IeMJ" target="_blank" rel="noreferrer">Garantir agora</a>
               <a class="btn btn-secondary" href="#minibook">Ver o minibook gratuito</a>
             </div>
 
@@ -741,7 +837,7 @@
             </p>
 
             <div class="cta-inline">
-              <a class="btn btn-primary track-buy" href="https://pay.kiwify.com.br/3M7IeMJ" target="_blank" rel="noreferrer">Garantir agora</a>
+              <a class="btn btn-primary" href="https://pay.kiwify.com.br/3M7IeMJ" target="_blank" rel="noreferrer">Garantir agora</a>
             </div>
           </aside>
         </div>
@@ -861,96 +957,107 @@
       </div>
     </section>
 
-    <section class="section" id="ebook">
-      <div class="container split">
-        <div class="reveal">
-          <div class="section-title">
-            <div class="kicker">Lançamento em destaque</div>
-            <h2>Um guia visual da Reforma Tributária pensado para quem quer passar.</h2>
-            <p>
-              O e-book reúne teoria objetiva, infográficos claros, radar da banca,
-              questões inéditas e resumos visuais para ajudar você a dominar um dos temas
-              mais relevantes dos próximos concursos.
-            </p>
-          </div>
+    ion class="section" id="ebook">
+  <div class="container focus-layout">
 
-          <div class="feature-list">
-            <div class="feature">
-              <div class="tick">✓</div>
-              <div>
-                <b>EC nº 132/2023 explicada com clareza</b>
-                <p>Entenda o novo sistema tributário sem cair em excesso de abstração ou formalismo desnecessário.</p>
-              </div>
-            </div>
+    <div class="focus-left">
 
-            <div class="feature">
-              <div class="tick">✓</div>
-              <div>
-                <b>IBS, CBS, Comitê Gestor e transição</b>
-                <p>Os pontos mais importantes da reforma organizados em capítulos visuais e progressivos.</p>
-              </div>
-            </div>
-
-            <div class="feature">
-              <div class="tick">✓</div>
-              <div>
-                <b>Radar da banca e questões comentadas</b>
-                <p>Aprenda como as bancas costumam cobrar o tema e evite armadilhas clássicas de prova.</p>
-              </div>
-            </div>
-          </div>
+      <div class="focus-box reveal">
+        <div class="section-title">
+          <div class="kicker">Para quem este material é ideal</div>
+          <h2>Um guia pensado para candidatos que querem transformar complexidade em vantagem competitiva.</h2>
+          <p>
+            O conteúdo foi estruturado especialmente para quem está se preparando para
+            fiscos estaduais, fiscos municipais e Receita Federal, áreas em que a
+            Reforma Tributária pode ser cobrada com profundidade crescente.
+          </p>
         </div>
 
-        <div class="book-card reveal">
-          <div class="book-cover">
-            <img src="cover.png" alt="Capa do e-book Reforma Tributária do Brasil na Prática">
+        <div class="cards-2">
+          <div class="card">
+            <div class="icon">🏛️</div>
+            <h3>SEFAZ e fiscos municipais</h3>
+            <p>
+              Ideal para quem busca domínio técnico do novo modelo tributário,
+              com foco em cobrança objetiva, prática e atualização normativa.
+            </p>
           </div>
 
-          <div>
-            <div class="badge-row">
-              <span class="badge">✓ EC nº 132/2023</span>
-              <span class="badge">✓ Infográficos</span>
-              <span class="badge">✓ Questões</span>
-            </div>
-
-            <h3 style="font-size:2rem;letter-spacing:-.04em;margin:6px 0 12px">
-              Reforma Tributária do Brasil na Prática
-            </h3>
-
-            <p style="color:var(--muted);line-height:1.8;margin:0">
-              O novo sistema tributário explicado com infográficos para concursos públicos.
+          <div class="card">
+            <div class="icon">💼</div>
+            <h3>Receita Federal</h3>
+            <p>
+              Conteúdo estratégico para quem precisa compreender a nova estrutura
+              tributária com clareza, organização visual e foco em prova.
             </p>
+          </div>
+        </div>
+      </div>
 
-            <div class="offer-panel">
-              <div class="strike-row">
-                <span class="strike">R$ 147</span>
-                <span class="strike">R$ 127</span>
-              </div>
+      <div class="focus-box reveal">
+        <div class="section-title">
+          <div class="kicker">Lançamento em destaque</div>
+          <h2>Um guia visual da Reforma Tributária pensado para quem quer passar.</h2>
+          <p>
+            O e-book reúne teoria objetiva, infográficos claros, radar da banca,
+            questões inéditas e resumos visuais para ajudar você a dominar um dos temas
+            mais relevantes dos próximos concursos.
+          </p>
+        </div>
 
-              <div class="price-label">Hoje por apenas</div>
-              <div class="offer-big">R$ 97</div>
+        <div class="feature-list compact">
+          <div class="feature">
+            <div class="tick">✓</div>
+            <div>
+              <b>EC nº 132/2023 explicada com clareza</b>
+              <p>Entenda o novo sistema tributário sem cair em excesso de abstração ou formalismo desnecessário.</p>
+            </div>
+          </div>
 
-              <p class="offer-note">
-                Valor especial de lançamento para garantir o acesso ao material completo.
-              </p>
+          <div class="feature">
+            <div class="tick">✓</div>
+            <div>
+              <b>IBS, CBS, Comitê Gestor e transição</b>
+              <p>Os pontos mais importantes da reforma organizados em capítulos visuais e progressivos.</p>
+            </div>
+          </div>
 
-              <div class="feature-list" style="margin-top:16px">
-                <div class="feature">
-                  <div class="tick">✓</div>
-                  <div>
-                    <b>Conteúdo completo e estratégico</b>
-                    <p>IVA Dual, não cumulatividade, regimes diferenciados, Comitê Gestor, transição 2026–2033, pegadinhas de prova e questões comentadas.</p>
-                  </div>
-                </div>
-              </div>
-
-              <div class="cta-inline">
-                <a class="btn btn-primary track-buy" href="https://pay.kiwify.com.br/3M7IeMJ" target="_blank" rel="noreferrer">Garantir agora</a>
-              </div>
+          <div class="feature">
+            <div class="tick">✓</div>
+            <div>
+              <b>Radar da banca e questões comentadas</b>
+              <p>Aprenda como as bancas costumam cobrar o tema e evite armadilhas clássicas de prova.</p>
             </div>
           </div>
         </div>
       </div>
+
+    </div>
+
+    <aside class="side-offer reveal">
+      <div class="strike-row">
+        <span class="strike">R$ 147</span>
+        <span class="strike">R$ 127</span>
+      </div>
+
+      <div class="price-label">Hoje por apenas</div>
+      <div class="price-now">R$ 97</div>
+
+      <p class="offer-note">
+        Valor especial de lançamento para garantir o acesso ao material completo.
+      </p>
+
+      <div class="book-cover">
+        <img src="cover.png" alt="Capa do e-book Reforma Tributária do Brasil na Prática">
+      </div>
+
+      <a class="btn btn-primary" href="https://pay.kiwify.com.br/3M7IeMJ" target="_blank" rel="noreferrer">
+        Garantir agora
+      </a>
+    </aside>
+
+  </div>
+
     </section>
 
     <section class="section" id="previa">
@@ -1043,7 +1150,7 @@
             ✔ Pagamento seguro via Kiwify &nbsp;&nbsp; ✔ Acesso imediato &nbsp;&nbsp; ✔ Material completo para estudo e revisão
           </p>
           <div class="cta-inline" style="justify-content:center">
-            <a class="btn btn-primary track-buy" href="https://pay.kiwify.com.br/3M7IeMJ" target="_blank" rel="noreferrer">Quero acessar o e-book completo</a>
+            <a class="btn btn-primary" href="https://pay.kiwify.com.br/3M7IeMJ" target="_blank" rel="noreferrer">Quero acessar o e-book completo</a>
           </div>
         </div>
       </div>
