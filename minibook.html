@@ -1,0 +1,769 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Minibook Gratuito | Reforma Tributária para Concursos — Concurseir.IA</title>
+  <meta name="description" content="Baixe grátis o Minibook da Reforma Tributária: infográficos, questões comentadas e radar da banca para concursos públicos." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=DM+Sans:ital,wght@0,300;0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --bg:        #0a1628;
+      --bg2:       #0e1e38;
+      --bg3:       #132548;
+      --blue:      #2563eb;
+      --blue2:     #3b82f6;
+      --cyan:      #38bdf8;
+      --cyan-soft: #bae6fd;
+      --gold:      #fbbf24;
+      --gold-soft: #fef3c7;
+      --success:   #34d399;
+      --text:      #e2eeff;
+      --muted:     #94aec8;
+      --line:      rgba(255,255,255,.09);
+      --glow-blue: rgba(37,99,235,.35);
+      --glow-cyan: rgba(56,189,248,.2);
+      --shadow:    0 24px 60px rgba(0,0,0,.4);
+      --r:         22px;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'DM Sans', sans-serif;
+      background-color: var(--bg);
+      color: var(--text);
+      min-height: 100vh;
+      overflow-x: hidden;
+      background-image:
+        radial-gradient(ellipse 80% 50% at 50% -10%, rgba(37,99,235,.22), transparent),
+        radial-gradient(ellipse 40% 30% at 80% 60%, rgba(56,189,248,.1), transparent),
+        radial-gradient(ellipse 50% 40% at 10% 80%, rgba(37,99,235,.1), transparent);
+    }
+
+    /* ─── NOISE OVERLAY ─── */
+    body::before {
+      content: '';
+      position: fixed;
+      inset: 0;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.03'/%3E%3C/svg%3E");
+      pointer-events: none;
+      z-index: 0;
+      opacity: .5;
+    }
+
+    /* ─── GRID LINES ─── */
+    .grid-bg {
+      position: fixed;
+      inset: 0;
+      z-index: 0;
+      pointer-events: none;
+      background-image:
+        linear-gradient(rgba(56,189,248,.04) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(56,189,248,.04) 1px, transparent 1px);
+      background-size: 60px 60px;
+    }
+
+    /* ─── TOPBAR ─── */
+    .topbar {
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      background: rgba(10,22,40,.8);
+      backdrop-filter: blur(18px);
+      border-bottom: 1px solid var(--line);
+    }
+
+    .topbar-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 14px 24px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      text-decoration: none;
+      color: inherit;
+    }
+
+    .brand img {
+      width: 80px;
+      height: auto;
+    }
+
+    .brand-name {
+      font-family: 'Syne', sans-serif;
+      font-size: 1.1rem;
+      font-weight: 800;
+      letter-spacing: -.02em;
+    }
+
+    .brand-name span { color: var(--cyan); }
+
+    .topbar-cta {
+      font-size: .88rem;
+      color: var(--muted);
+    }
+
+    /* ─── HERO ─── */
+    .hero {
+      position: relative;
+      z-index: 1;
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 70px 24px 60px;
+      display: grid;
+      grid-template-columns: 1fr 420px;
+      gap: 48px;
+      align-items: center;
+    }
+
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(251,191,36,.1);
+      border: 1px solid rgba(251,191,36,.25);
+      border-radius: 999px;
+      padding: 8px 16px;
+      font-size: .82rem;
+      font-weight: 600;
+      color: var(--gold-soft);
+      letter-spacing: .04em;
+      text-transform: uppercase;
+      margin-bottom: 22px;
+    }
+
+    .badge .dot {
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: var(--gold);
+      animation: pulse 2s infinite;
+    }
+
+    @keyframes pulse {
+      0%, 100% { opacity: 1; transform: scale(1); }
+      50% { opacity: .5; transform: scale(.7); }
+    }
+
+    h1 {
+      font-family: 'Syne', sans-serif;
+      font-size: 3.4rem;
+      line-height: 1.02;
+      letter-spacing: -.05em;
+      font-weight: 800;
+      margin-bottom: 20px;
+    }
+
+    h1 em {
+      font-style: normal;
+      background: linear-gradient(135deg, var(--cyan), var(--blue2));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .lead {
+      font-size: 1.1rem;
+      color: #c8daf0;
+      line-height: 1.8;
+      max-width: 540px;
+      margin-bottom: 32px;
+    }
+
+    /* ─── BULLETS ─── */
+    .bullets {
+      display: grid;
+      gap: 12px;
+      margin-bottom: 36px;
+    }
+
+    .bullet {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-size: .97rem;
+      color: var(--text);
+    }
+
+    .bullet-icon {
+      width: 32px;
+      height: 32px;
+      flex: 0 0 32px;
+      border-radius: 10px;
+      background: rgba(52,211,153,.12);
+      border: 1px solid rgba(52,211,153,.2);
+      display: grid;
+      place-items: center;
+      font-size: .9rem;
+    }
+
+    /* ─── SOCIAL PROOF ─── */
+    .proof {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      font-size: .88rem;
+      color: var(--muted);
+    }
+
+    .proof-avatars {
+      display: flex;
+    }
+
+    .proof-avatar {
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      border: 2px solid var(--bg);
+      margin-left: -8px;
+      background: linear-gradient(135deg, var(--blue), var(--cyan));
+      display: grid;
+      place-items: center;
+      font-size: .7rem;
+      font-weight: 700;
+      color: #fff;
+    }
+
+    .proof-avatar:first-child { margin-left: 0; }
+
+    /* ─── CARD DE CAPTURA ─── */
+    .capture-card {
+      position: relative;
+      background: linear-gradient(160deg, rgba(19,37,72,.95), rgba(14,30,56,.98));
+      border: 1px solid rgba(56,189,248,.2);
+      border-radius: 28px;
+      padding: 36px 32px;
+      box-shadow:
+        var(--shadow),
+        0 0 0 1px rgba(255,255,255,.04) inset,
+        0 0 60px rgba(37,99,235,.15);
+      backdrop-filter: blur(16px);
+    }
+
+    .capture-card::before {
+      content: '';
+      position: absolute;
+      top: -1px;
+      left: 30px;
+      right: 30px;
+      height: 2px;
+      background: linear-gradient(90deg, transparent, var(--cyan), transparent);
+      border-radius: 999px;
+    }
+
+    .card-cover {
+      width: 100%;
+      max-width: 200px;
+      margin: 0 auto 24px;
+      display: block;
+      border-radius: 14px;
+      box-shadow: 0 20px 50px rgba(0,0,0,.5);
+    }
+
+    .card-title {
+      font-family: 'Syne', sans-serif;
+      font-size: 1.3rem;
+      font-weight: 800;
+      text-align: center;
+      margin-bottom: 6px;
+      letter-spacing: -.03em;
+    }
+
+    .card-sub {
+      text-align: center;
+      color: var(--muted);
+      font-size: .9rem;
+      margin-bottom: 24px;
+      line-height: 1.6;
+    }
+
+    .free-tag {
+      display: block;
+      text-align: center;
+      font-size: .78rem;
+      color: var(--success);
+      font-weight: 700;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      margin-bottom: 20px;
+    }
+
+    /* ─── FORM (Brevo embed target) ─── */
+    .form-wrap {
+      display: grid;
+      gap: 12px;
+    }
+
+    .form-wrap input {
+      width: 100%;
+      background: rgba(255,255,255,.06);
+      border: 1px solid rgba(255,255,255,.12);
+      border-radius: 14px;
+      padding: 14px 18px;
+      color: var(--text);
+      font-family: 'DM Sans', sans-serif;
+      font-size: .97rem;
+      outline: none;
+      transition: border-color .2s, box-shadow .2s;
+    }
+
+    .form-wrap input::placeholder { color: var(--muted); }
+
+    .form-wrap input:focus {
+      border-color: var(--cyan);
+      box-shadow: 0 0 0 3px rgba(56,189,248,.12);
+    }
+
+    .btn-submit {
+      width: 100%;
+      padding: 16px;
+      border-radius: 14px;
+      border: none;
+      background: linear-gradient(135deg, #1d55c8, var(--blue2), var(--cyan));
+      color: #fff;
+      font-family: 'Syne', sans-serif;
+      font-size: 1rem;
+      font-weight: 800;
+      letter-spacing: .01em;
+      cursor: pointer;
+      transition: transform .2s, box-shadow .2s;
+      box-shadow: 0 12px 32px rgba(37,99,235,.35);
+    }
+
+    .btn-submit:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 18px 40px rgba(37,99,235,.45);
+    }
+
+    .btn-submit:active { transform: translateY(0); }
+
+    .privacy-note {
+      text-align: center;
+      font-size: .78rem;
+      color: var(--muted);
+      margin-top: 10px;
+      line-height: 1.5;
+    }
+
+    .privacy-note a {
+      color: var(--cyan-soft);
+      text-decoration: none;
+    }
+
+    /* ─── SUCCESS STATE ─── */
+    .success-state {
+      display: none;
+      text-align: center;
+      padding: 16px 0;
+      animation: fadeIn .5s ease;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(10px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    .success-icon {
+      font-size: 3rem;
+      margin-bottom: 16px;
+    }
+
+    .success-state h3 {
+      font-family: 'Syne', sans-serif;
+      font-size: 1.3rem;
+      margin-bottom: 10px;
+    }
+
+    .success-state p {
+      color: var(--muted);
+      font-size: .93rem;
+      line-height: 1.7;
+    }
+
+    /* ─── PREVIEW SECTION ─── */
+    .preview-section {
+      position: relative;
+      z-index: 1;
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 0 24px 80px;
+    }
+
+    .section-label {
+      text-align: center;
+      font-size: .8rem;
+      font-weight: 700;
+      letter-spacing: .2em;
+      text-transform: uppercase;
+      color: var(--cyan-soft);
+      margin-bottom: 14px;
+    }
+
+    .preview-section h2 {
+      font-family: 'Syne', sans-serif;
+      font-size: 2rem;
+      font-weight: 800;
+      text-align: center;
+      letter-spacing: -.04em;
+      margin-bottom: 10px;
+    }
+
+    .preview-sub {
+      text-align: center;
+      color: var(--muted);
+      font-size: .97rem;
+      margin-bottom: 36px;
+    }
+
+    .chapters {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+    }
+
+    .chapter {
+      background: linear-gradient(160deg, rgba(255,255,255,.07), rgba(255,255,255,.03));
+      border: 1px solid var(--line);
+      border-radius: var(--r);
+      padding: 22px;
+      transition: border-color .25s, transform .25s;
+    }
+
+    .chapter:hover {
+      border-color: rgba(56,189,248,.3);
+      transform: translateY(-3px);
+    }
+
+    .ch-num {
+      font-family: 'Syne', sans-serif;
+      font-size: .72rem;
+      font-weight: 800;
+      letter-spacing: .18em;
+      color: var(--cyan);
+      text-transform: uppercase;
+      margin-bottom: 10px;
+    }
+
+    .chapter h3 {
+      font-family: 'Syne', sans-serif;
+      font-size: 1rem;
+      font-weight: 800;
+      letter-spacing: -.02em;
+      margin-bottom: 8px;
+    }
+
+    .chapter p {
+      color: var(--muted);
+      font-size: .88rem;
+      line-height: 1.7;
+    }
+
+    /* ─── DIVIDER ─── */
+    .divider {
+      height: 1px;
+      background: linear-gradient(90deg, transparent, var(--line), transparent);
+      margin: 0 24px 60px;
+      position: relative;
+      z-index: 1;
+    }
+
+    /* ─── FOOTER ─── */
+    footer {
+      position: relative;
+      z-index: 1;
+      text-align: center;
+      padding: 28px 24px 40px;
+      border-top: 1px solid var(--line);
+      color: var(--muted);
+      font-size: .85rem;
+      line-height: 1.8;
+    }
+
+    footer a { color: var(--cyan-soft); text-decoration: none; }
+    footer strong { color: var(--text); }
+
+    /* ─── RESPONSIVE ─── */
+    @media (max-width: 900px) {
+      .hero {
+        grid-template-columns: 1fr;
+        padding-top: 50px;
+        gap: 36px;
+      }
+
+      h1 { font-size: 2.6rem; }
+
+      .chapters {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (max-width: 600px) {
+      h1 { font-size: 2rem; }
+      .lead { font-size: 1rem; }
+      .capture-card { padding: 28px 22px; }
+
+      .chapters {
+        grid-template-columns: 1fr;
+      }
+
+      .topbar-cta { display: none; }
+    }
+
+    /* ─── ENTRANCE ANIMATIONS ─── */
+    .fade-up {
+      opacity: 0;
+      transform: translateY(30px);
+      animation: fadeUp .7s ease forwards;
+    }
+
+    .fade-up:nth-child(2) { animation-delay: .1s; }
+    .fade-up:nth-child(3) { animation-delay: .2s; }
+    .fade-up:nth-child(4) { animation-delay: .3s; }
+
+    @keyframes fadeUp {
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .card-anim {
+      opacity: 0;
+      transform: translateY(20px) scale(.98);
+      animation: cardIn .8s .2s ease forwards;
+    }
+
+    @keyframes cardIn {
+      to { opacity: 1; transform: translateY(0) scale(1); }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="grid-bg"></div>
+
+  <!-- TOPBAR -->
+  <header class="topbar">
+    <div class="topbar-inner">
+      <a class="brand" href="https://www.concurseiria.ia.br">
+        <img src="logo.png" alt="Concurseir.IA">
+        <div class="brand-name">Concurseir<span>.IA</span></div>
+      </a>
+      <span class="topbar-cta">A inteligência artificial a favor da sua aprovação</span>
+    </div>
+  </header>
+
+  <!-- HERO -->
+  <section class="hero">
+
+    <!-- COPY -->
+    <div>
+      <div class="badge fade-up">
+        <span class="dot"></span>
+        100% Gratuito — Acesso imediato
+      </div>
+
+      <h1 class="fade-up">
+        Domine a<br>
+        <em>Reforma Tributária</em><br>
+        antes da prova
+      </h1>
+
+      <p class="lead fade-up">
+        Baixe agora o Minibook gratuito com infográficos estratégicos, questões comentadas e o radar das bancas — tudo para transformar o tema mais complexo dos próximos concursos em vantagem competitiva.
+      </p>
+
+      <div class="bullets fade-up">
+        <div class="bullet">
+          <div class="bullet-icon">📊</div>
+          <span><strong>10 infográficos visuais</strong> — EC 132/2023 explicada com clareza</span>
+        </div>
+        <div class="bullet">
+          <div class="bullet-icon">🎯</div>
+          <span><strong>IBS, CBS, Comitê Gestor e Transição</strong> — os 4 pilares da reforma</span>
+        </div>
+        <div class="bullet">
+          <div class="bullet-icon">⚡</div>
+          <span><strong>4 questões inéditas comentadas</strong> — no estilo CESPE, FGV e FCC</span>
+        </div>
+        <div class="bullet">
+          <div class="bullet-icon">🧩</div>
+          <span><strong>Pegadinhas de prova reveladas</strong> — erros clássicos que derrubam candidatos</span>
+        </div>
+      </div>
+
+      <div class="proof fade-up">
+        <div class="proof-avatars">
+          <div class="proof-avatar">MR</div>
+          <div class="proof-avatar">JL</div>
+          <div class="proof-avatar">CA</div>
+          <div class="proof-avatar">FB</div>
+        </div>
+        <span>Concurseiros já estão usando este material</span>
+      </div>
+    </div>
+
+    <!-- CAPTURE CARD -->
+    <div class="card-anim">
+      <div class="capture-card">
+
+        <img class="card-cover" src="Minibook_Reforma_Tributária_Final.pdf" alt="Capa do Minibook Reforma Tributária">
+
+        <p class="card-title">Minibook Gratuito</p>
+        <p class="card-sub">Reforma Tributária do Brasil<br>na Prática — Guia Visual para Concursos</p>
+
+        <span class="free-tag">✦ Acesso gratuito e imediato ✦</span>
+
+        <!-- 
+          ═══════════════════════════════════════════
+          INSTRUÇÃO PARA INTEGRAÇÃO COM BREVO:
+          
+          Substitua o bloco .form-wrap abaixo pelo
+          código de embed do formulário Brevo.
+          
+          No Brevo: Contacts → Forms → Create a form
+          → escolha "Embedded form" → copie o HTML
+          e cole aqui no lugar deste bloco.
+          ═══════════════════════════════════════════
+        -->
+
+        <div id="form-container">
+          <iframe 
+            width="100%" 
+            height="320" 
+            src="https://f5648a67.sibforms.com/serve/MUIFALs85fZw391G3GD1oeYRRTv-kFrsphZ24UqGFGPXyhL6Y4X7jsk0KBZjn2y6rv3gMrtrdSFtcRkJnwM5YkhI2mNzEPPOLAna-3bINrEKLkLAmh7jGB4yrfJxt3DACGQ4LMSbQdGmfm0PX9eootHm9yaZOJAVfUbOHu0ToPP7PBeUOVXVlbUgizsyGDAPCwp7HDpfNbs9WgHHPQ==" 
+            frameborder="0" 
+            scrolling="auto" 
+            allowfullscreen 
+            style="display:block;border-radius:12px;overflow:hidden;">
+          </iframe>
+        </div>
+
+        <p class="privacy-note">
+          🔒 Sem spam. Seus dados estão seguros.<br>
+          Você pode cancelar a qualquer momento.
+        </p>
+
+      </div>
+    </div>
+
+  </section>
+
+  <div class="divider"></div>
+
+  <!-- CONTEÚDO DO MINIBOOK -->
+  <section class="preview-section">
+    <p class="section-label">O que você vai aprender</p>
+    <h2>10 capítulos visuais para dominar a EC 132/2023</h2>
+    <p class="preview-sub">Conteúdo estruturado para concurseiros que precisam estudar com eficiência.</p>
+
+    <div class="chapters">
+      <div class="chapter">
+        <div class="ch-num">Cap. 01</div>
+        <h3>O Marco da EC 132/2023</h3>
+        <p>A transformação mais profunda do sistema tributário em 35 anos — contexto e impactos.</p>
+      </div>
+      <div class="chapter">
+        <div class="ch-num">Cap. 02</div>
+        <h3>Por que Precisávamos Mudar?</h3>
+        <p>5.595 legislações diferentes, guerra fiscal e efeito cascata — o caos que gerou a reforma.</p>
+      </div>
+      <div class="chapter">
+        <div class="ch-num">Cap. 03</div>
+        <h3>O IVA Dual Brasileiro</h3>
+        <p>CBS + IBS explicados com a jornada de um smartphone. Não-cumulatividade plena na prática.</p>
+      </div>
+      <div class="chapter">
+        <div class="ch-num">Cap. 04</div>
+        <h3>IBS e CBS em Detalhe</h3>
+        <p>Os 4 pilares técnicos: crédito financeiro, tributação no destino, base "por fora" e alíquotas.</p>
+      </div>
+      <div class="chapter">
+        <div class="ch-num">Cap. 05</div>
+        <h3>Os 4 Tributos da Reforma</h3>
+        <p>IBS, CBS, IS e IPI remanescente — quadro comparativo completo com pegadinhas de prova.</p>
+      </div>
+      <div class="chapter">
+        <div class="ch-num">Cap. 06</div>
+        <h3>7 Princípios Constitucionais</h3>
+        <p>Simplicidade, transparência, neutralidade, justiça e cooperação federativa explicados visualmente.</p>
+      </div>
+      <div class="chapter">
+        <div class="ch-num">Cap. 07</div>
+        <h3>Não-Cumulatividade</h3>
+        <p>A fórmula débito–crédito, o "semáforo" do crédito, Split Payment e gestão do saldo credor.</p>
+      </div>
+      <div class="chapter">
+        <div class="ch-num">Cap. 08</div>
+        <h3>Regimes Especiais</h3>
+        <p>Produtor rural, Simples Nacional, transportador autônomo e o crédito presumido.</p>
+      </div>
+      <div class="chapter">
+        <div class="ch-num">Cap. 09</div>
+        <h3>Comitê Gestor do IBS</h3>
+        <p>A nova autoridade tributária nacional: 54 membros, sistema duplo de votação e competências.</p>
+      </div>
+      <div class="chapter">
+        <div class="ch-num">Cap. 10</div>
+        <h3>Transição 2026–2033</h3>
+        <p>O cronograma ano a ano: do teste em 2026 à extinção total do ICMS/ISS em 2033.</p>
+      </div>
+      <div class="chapter">
+        <div class="ch-num">Cap. 11</div>
+        <h3>Questões Comentadas</h3>
+        <p>4 questões inéditas no estilo CESPE, FGV e FCC com gabarito detalhado e armadilhas reveladas.</p>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <p><strong>Concurseir.IA</strong> — A inteligência artificial a favor da sua aprovação</p>
+    <p><a href="https://www.concurseiria.ia.br">www.concurseiria.ia.br</a> &nbsp;·&nbsp; <a href="mailto:concurseiria@gmail.com">concurseiria@gmail.com</a> &nbsp;·&nbsp; @concurseir.ai</p>
+    <p style="margin-top:8px">© 2026 Concurseir.IA. Todos os direitos reservados.</p>
+  </footer>
+
+  <script>
+    // ─── SIMULAÇÃO DO FORM (substituir pelo embed do Brevo) ───
+    function handleSubmit() {
+      const nome  = document.getElementById('nome').value.trim();
+      const email = document.getElementById('email').value.trim();
+
+      if (!nome || !email || !email.includes('@')) {
+        alert('Por favor, preencha seu nome e e-mail corretamente.');
+        return;
+      }
+
+      // Quando o Brevo estiver integrado, este bloco será
+      // substituído pelo handler do formulário Brevo.
+      document.getElementById('lead-form').style.display  = 'none';
+      document.getElementById('success-msg').style.display = 'block';
+
+      // Opcional: enviar evento pro Google Analytics
+      if (typeof gtag !== 'undefined') {
+        gtag('event', 'lead_capture', {
+          event_category: 'minibook',
+          event_label: 'reforma_tributaria'
+        });
+      }
+    }
+
+    // ─── SCROLL REVEAL para os chapters ───
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.style.opacity    = '1';
+          entry.target.style.transform  = 'translateY(0)';
+        }
+      });
+    }, { threshold: 0.1 });
+
+    document.querySelectorAll('.chapter').forEach((el,
